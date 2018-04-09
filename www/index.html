@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+  <head>
+   
+    <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css">
+      
+    
+      
+      
+      <!--<script src="js/components/mail_list.js"></script>-->
+    <!--<script src="js/components/mail_item.js"></script>-->
+    
+      
+  </head>
+
+  <body onload="init()">
+    <div  class="app-viewport" id="app">
+        
+        
+        
+        <md-toolbar class="md-primary"> <!-- inicio toolbar de la app-->
+            <md-button class="md-icon-button" @click="showNavigation = true">
+                <md-icon>menu</md-icon>
+            </md-button>
+            
+                <h3 class="md-title" style="flex: 3">Vinder</h3>
+            
+                <md-button class="md-icon-button">
+                    <md-icon>search</md-icon>
+                </md-button>
+            
+                <md-button class="md-icon-button">
+                    <md-icon>view_module</md-icon>
+                </md-button>
+            
+                <md-button class="md-icon-button">
+                    <md-icon>more_vert</md-icon>
+                </md-button>
+               
+        </md-toolbar> <!-- fin toolbar de la app-->
+        
+        <md-drawer :md-active.sync="showNavigation" ref="sidebar"> <!-- inicio panel lateral-->
+              <md-toolbar class="md-primary" md-elevation="0">
+                <span class="md-title">Vinder</span>
+              </md-toolbar>
+
+              <md-list>
+                <md-list-item @click="goToInbox()">
+                  <md-icon>home</md-icon>
+                  <span class="md-list-item-text">Home</span>
+                </md-list-item>
+
+                <md-list-item @click="goToCarpetas()">
+                  <md-icon>folder</md-icon>
+                  <span class="md-list-item-text">Carpetas</span>
+                </md-list-item>
+
+                <md-list-item @click="goToSimpleList()">
+                  <md-icon>grade</md-icon>
+                  <span class="md-list-item-text">Destacados</span>
+                </md-list-item>
+
+                <md-list-item @click="goToAdvancedList()">
+                  <md-icon>delete</md-icon>
+                  <span class="md-list-item-text">Papelera</span>
+                </md-list-item>
+                  
+              </md-list>
+        </md-drawer> <!-- fin panel lateral-->  
+
+        <md-drawer :md-active.sync="showNavigation2" ref="bottombar"> <!-- inicio panel inferior-->
+              <md-list>
+                <md-list-item>
+                            <md-button class="md-icon-button md-list-action">
+                                <md-icon>folder</md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button md-list-action">
+                                <md-icon>file_upload</md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button md-list-action">
+                                <md-icon>photo_camera</md-icon>
+                            </md-button>
+                        </md-list-item>
+              </md-list>
+        </md-drawer> <!-- fin panel inferior-->  
+    
+      
+      <main class="main-content"> <!-- aqui el router inyecta las paginas-->
+                       <div>
+                          <router-view></router-view>
+                        <md-button class="md-fab md-fab-bottom-right" @click="showNavigation2 = true">
+                          <md-icon>add</md-icon>
+                        </md-button>
+                        </div>
+                      
+        </main>
+
+    </div>
+   
+      
+		<!--script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script-->
+      
+		
+		<script src="https://unpkg.com/vue"></script>
+		<script src="js/vue-router.js"></script>
+		<script src="https://unpkg.com/vue-material@beta"></script>
+      
+    <script src="js/components/mail_item.js"></script>
+    <script src="js/components/mail_list.js"></script>
+		<script src="js/components/simple_list.js"></script>
+		<script src="js/components/carpetas.js"></script>
+    <script src="js/components/docList.js"></script>
+      
+		<script src="js/main.js"></script>
+  </body>
+</html>
+
+
+
+
+
